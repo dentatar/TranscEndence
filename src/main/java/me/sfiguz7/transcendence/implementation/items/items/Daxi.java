@@ -6,6 +6,7 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.core.handlers.ItemUseHandler;
 
 import me.sfiguz7.transcendence.TranscEndence;
+import me.sfiguz7.transcendence.implementation.utils.SaveUtils;
 import me.sfiguz7.transcendence.lists.TEItems;
 import me.sfiguz7.transcendence.lists.TERecipeType;
 import org.bukkit.ChatColor;
@@ -17,7 +18,6 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -73,6 +73,8 @@ public class Daxi extends SlimefunItem {
             CONFIG.getString("options.daxi-message-intro") + "\n" + type.message);
         event.cancel();
         event.getItem().setAmount(event.getItem().getAmount() - 1);
+
+        SaveUtils.writeData();
     }
 
     private void startAnimation(Player p) {

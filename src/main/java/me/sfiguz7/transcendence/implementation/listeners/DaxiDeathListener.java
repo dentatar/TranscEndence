@@ -4,6 +4,7 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.Persis
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import me.sfiguz7.transcendence.TranscEndence;
 import me.sfiguz7.transcendence.implementation.items.items.Daxi;
+import me.sfiguz7.transcendence.implementation.utils.SaveUtils;
 import me.sfiguz7.transcendence.lists.TEItems;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -48,6 +49,8 @@ public class DaxiDeathListener implements Listener {
                 e.getDrops().add(new CustomItemStack(TEItems.STABLE_BLOCK, 8));
             }
             activePlayers.remove(uuid);
+
+            SaveUtils.writeData();
         }
     }
 
